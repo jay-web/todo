@@ -1,16 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import { List, Button, Icon } from "semantic-ui-react";
+import { TasksContext } from "../context/todo.context";
+import { DispatchContext } from "../context/todo.context";
 
-const TodoList = (props) => {
-  const { list, deleteTask, editTask } = props;
+const TodoList = () => {
+  const todoState = useContext(TasksContext);
+  const dispatch = useContext(DispatchContext);
 
+  console.log(todoState)
   const renderList = () => {
-    return list.map((task, index) => {
+    return todoState.list.map((task, index) => {
       return (
         <List.Item key={index}>
           <List.Content floated="right">
-            <Button onClick={() => editTask(task, index)}>Edit</Button>
-            <Button onClick={() => deleteTask(index)}>Delete</Button>
+            <Button onClick={() => dispatch({ type: "EDIT_TASK", task: task, id: index})}>Edit</Button>
+            <Button onClick={() => dispatch({ type: "REMOVE_TASK", id: index})}>Delete</Button>
           </List.Content>
 
           <Icon name="chess queen" size="large" />
