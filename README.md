@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Todo Application
+
+## It is completely basic todo application. But implemented into two different approach.
+ *  Master Repo has basic app with props drilling approach. All the app state handled in app component and passed callback functions to child component for state updation.
+ *  Custom-hook branch has implemented with custom hooks to store the data into local storage and useReducer hook to get all callback functionality.
+
+
+## Getting Started with Todo Application
+
+* Clone the master repo if want to use props drilling approach.
+* Clone the custom-hook branch, if want to use custom approach to centralized the functionality.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
